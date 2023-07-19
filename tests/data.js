@@ -1,3 +1,55 @@
+           },
+                {
+                    directive : 'font-size',
+                    value : '20px'
+                }
+            ]
+        },
+        output : {
+            selector : '.someSelector',
+            rules : [
+                {
+                    directive : 'padding',
+                    value : '0 auto'
+                },
+                {
+                    directive : 'font-size',
+                    value : '30px'
+                },
+                {
+                    directive : 'margin',
+                    value : '0 auto',
+                    type : 'DELETED'
+                }
+            ]
+        }
+    },
+    parseRules1 : {
+            input : '\n\ncolor:white;\n    font-size:18px;\n    color:red',
+            output : [
+                {
+                    directive : 'color',
+                    value : 'white'    
+                },
+                {
+                    directive : 'font-size',
+                    value : '18px'    
+                },
+                {
+                    directive : 'color',
+                    value : 'red'    
+                }
+            ]
+    }
+};
+
+var cssDiffFailedValues = [
+    {
+        css1 : '{"selector":".form-textarea, .form-textbox","rules":[{"directive":"border","value":"1px solid #b7bbbd"},{"directive":"-webkit-border-radius","value":"2px"},{"directive":"-moz-border-radius","value":"2px"},{"directive":"border-radius","value":"2px"},{"directive":"padding","value":"4px"},{"directive":"background","value":"transparent !important"},{"directive":"width","value":"100%"},{"directive":"-webkit-appearance","value":"none"},{"directive":"-webkit-box-shadow","value":"inset 0 0 4px rgba(0,0,0,0.2), 0 1px 0 rgb(255,255,255)"},{"directive":"-moz-box-shadow","value":"inset 0 0 4px rgba(0,0,0,0.2), 0 1px 0 rgb(255,255,255)"},{"directive":"box-shadow","value":"inset 0 0 4px rgba(0,0,0,0.2), 0 1px 0 rgb(255,255,255)"},{"directive":"border","value":"1px solid #AEAEAE"},{"directive":"color","value":"#333"},{"directive":"font-family","value":"\\"Verdana\\", sans-serif"},{"directive":"-webkit-box-sizing","value":"border-box"},{"directive":"-moz-box-sizing","value":"border-box"},{"directive":"box-sizing","value":"border-box"}]}',
+        css2 : '{"selector":".form-textarea, .form-textbox","rules":[{"directive":"border","value":"1px solid #b7bbbd"},{"directive":"-webkit-border-radius","value":"2px"},{"directive":"-moz-border-radius","value":"2px"},{"directive":"border-radius","value":"2px"},{"directive":"padding","value":"4px"},{"directive":"background","value":"transparent !important"},{"directive":"width","value":"100%"},{"directive":"-webkit-appearance","value":"none"},{"directive":"-webkit-box-shadow","value":"inset 0 0 4px rgba(0,0,0,0.2), 0 1px 0 rgb(255,255,255)"},{"directive":"-moz-box-shadow","value":"inset 0 0 4px rgba(0,0,0,0.2), 0 1px 0 rgb(255,255,255)"},{"directive":"box-shadow","value":"inset 0 0 4px rgba(0,0,0,0.2), 0 1px 0 rgb(255,255,255)"},{"directive":"border","value":"1px solid #AEAEAE"},{"directive":"color","value":"#333"},{"directive":"font-family","value":"\\"Verdana\\", sans-serif"},{"directive":"-webkit-box-sizing","value":"border-box"},{"directive":"-moz-box-sizing","value":"border-box"},{"directive":"box-sizing","value":"border-box"}]}',
+        output : false
+    }
+];
 var testData = {
     veryBasicCSS: {
         input: '.someClass{someDirective:someValue;}',
@@ -340,55 +392,4 @@ var unitTest = {
                 {
                     directive : 'margin',
                     value : '0 auto'
-                },
-                {
-                    directive : 'font-size',
-                    value : '20px'
-                }
-            ]
-        },
-        output : {
-            selector : '.someSelector',
-            rules : [
-                {
-                    directive : 'padding',
-                    value : '0 auto'
-                },
-                {
-                    directive : 'font-size',
-                    value : '30px'
-                },
-                {
-                    directive : 'margin',
-                    value : '0 auto',
-                    type : 'DELETED'
-                }
-            ]
-        }
-    },
-    parseRules1 : {
-            input : '\n\ncolor:white;\n    font-size:18px;\n    color:red',
-            output : [
-                {
-                    directive : 'color',
-                    value : 'white'    
-                },
-                {
-                    directive : 'font-size',
-                    value : '18px'    
-                },
-                {
-                    directive : 'color',
-                    value : 'red'    
-                }
-            ]
-    }
-};
-
-var cssDiffFailedValues = [
-    {
-        css1 : '{"selector":".form-textarea, .form-textbox","rules":[{"directive":"border","value":"1px solid #b7bbbd"},{"directive":"-webkit-border-radius","value":"2px"},{"directive":"-moz-border-radius","value":"2px"},{"directive":"border-radius","value":"2px"},{"directive":"padding","value":"4px"},{"directive":"background","value":"transparent !important"},{"directive":"width","value":"100%"},{"directive":"-webkit-appearance","value":"none"},{"directive":"-webkit-box-shadow","value":"inset 0 0 4px rgba(0,0,0,0.2), 0 1px 0 rgb(255,255,255)"},{"directive":"-moz-box-shadow","value":"inset 0 0 4px rgba(0,0,0,0.2), 0 1px 0 rgb(255,255,255)"},{"directive":"box-shadow","value":"inset 0 0 4px rgba(0,0,0,0.2), 0 1px 0 rgb(255,255,255)"},{"directive":"border","value":"1px solid #AEAEAE"},{"directive":"color","value":"#333"},{"directive":"font-family","value":"\\"Verdana\\", sans-serif"},{"directive":"-webkit-box-sizing","value":"border-box"},{"directive":"-moz-box-sizing","value":"border-box"},{"directive":"box-sizing","value":"border-box"}]}',
-        css2 : '{"selector":".form-textarea, .form-textbox","rules":[{"directive":"border","value":"1px solid #b7bbbd"},{"directive":"-webkit-border-radius","value":"2px"},{"directive":"-moz-border-radius","value":"2px"},{"directive":"border-radius","value":"2px"},{"directive":"padding","value":"4px"},{"directive":"background","value":"transparent !important"},{"directive":"width","value":"100%"},{"directive":"-webkit-appearance","value":"none"},{"directive":"-webkit-box-shadow","value":"inset 0 0 4px rgba(0,0,0,0.2), 0 1px 0 rgb(255,255,255)"},{"directive":"-moz-box-shadow","value":"inset 0 0 4px rgba(0,0,0,0.2), 0 1px 0 rgb(255,255,255)"},{"directive":"box-shadow","value":"inset 0 0 4px rgba(0,0,0,0.2), 0 1px 0 rgb(255,255,255)"},{"directive":"border","value":"1px solid #AEAEAE"},{"directive":"color","value":"#333"},{"directive":"font-family","value":"\\"Verdana\\", sans-serif"},{"directive":"-webkit-box-sizing","value":"border-box"},{"directive":"-moz-box-sizing","value":"border-box"},{"directive":"box-sizing","value":"border-box"}]}',
-        output : false
-    }
-];
+     
