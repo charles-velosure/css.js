@@ -1,61 +1,4 @@
-idth","value":"150px"},{"directive":"color","value":"red"}]}',
-        css2: '{"selector":".form-label-left,.form-label-right","rules":[{"directive":"width","value":"150px"},{"directive":"color","value":"blue"}]}',
-        diff: '{"selector":".form-label-left,.form-label-right","rules":[{"directive":"color","value":"red"}]}'
-    },
-    diffBasic2: {
-        css1: '{"selector":".form-label","rules":[{"directive":"white-space","value":"normal"}]}',
-        css2: '{"selector":".form-label","rules":[{"directive":"white-space","value":"normal"}]}',
-        diff: false
-    }
-};
-
-var cssIntelligentPushData = {
-    pushBasic: {
-        styles: '[]',
-        newStyle: '{"selector":".form-textbox,.form-textarea,.form-radio-other-input,.form-checkbox-other-input,.form-captcha input,.form-spinner input,.form-checkbox-item label,.form-radio-item label","rules":[{"directive":"color","value":"#ccc"}]}',
-        result: '[{"selector":".form-textbox,.form-textarea,.form-radio-other-input,.form-checkbox-other-input,.form-captcha input,.form-spinner input,.form-checkbox-item label,.form-radio-item label","rules":[{"directive":"color","value":"#ccc"}]}]'
-    },
-    pushBasic2: {
-        styles: '[{"selector":".first","rules":[{"directive":"color","value":"blue"},{"directive":"margin","value":"10px"}]},{"selector":".second","rules":[{"directive":"color","value":"red"},{"directive":"margin","value":"20px"}]}]',
-        newStyle: '{"selector":".first","rules":[{"directive":"padding","value":"5px"}]}',
-        result: '[{"selector":".first","rules":[{"directive":"color","value":"blue"},{"directive":"margin","value":"10px"},{"directive":"padding","value":"5px"}]},{"selector":".second","rules":[{"directive":"color","value":"red"},{"directive":"margin","value":"20px"}]}]'
-    },
-    pushBasic3: {
-        styles: '[{"selector":"@media screen and (min-width: 780px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"background-color","value":"#fafafa"}]}]}]',
-        newStyle: '{"selector":"@media screen and (min-width: 780px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"background-color","value":"#bada55"}]}]}',
-        result: '[{"selector":"@media screen and (min-width: 780px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"background-color","value":"#fafafa"}]},{"selector":".supernova","rules":[{"directive":"background-color","value":"#bada55"}]}]}]'
-    }
-};
-
-/*
-    data regarding unit tests of functions of FullInspector
-*/
-var unitTest = {
-    stripComments : {
-        input : '\/*\n   Some Css Comments\n   \n*\/\n.classSelector{\n   margin : 20px; \/* single line css comment *\/\n}',
-        output :  '\n.classSelector{\n   margin : 20px; \n}'
-    },
-    findCorrespondingRule : {
-        input1 :[
-                    {
-                        directive : 'margin',
-                        value : '0px'
-                    },
-                    {
-                        directive : 'background',
-                        value : 'black'
-                    },
-                ],
-        input2 : 'background',
-        output :{
-                    directive : 'background',
-                    value : 'black'
-                }
-    },
-    findBySelector : {
-        input1 :[
-                    {
-                        selector : '.someSelector',
+          selector : '.someSelector',
                         rules : [
                             {
                                 directive : 'margin',
@@ -392,4 +335,61 @@ var testData = {
 
 var diffTestData = {
     diffBasic: {
-        css1: '{"selector":".form-label-left,.form-label-right","rules":[{"directive":"w
+        css1: '{"selector":".form-label-left,.form-label-right","rules":[{"directive":"width","value":"150px"},{"directive":"color","value":"red"}]}',
+        css2: '{"selector":".form-label-left,.form-label-right","rules":[{"directive":"width","value":"150px"},{"directive":"color","value":"blue"}]}',
+        diff: '{"selector":".form-label-left,.form-label-right","rules":[{"directive":"color","value":"red"}]}'
+    },
+    diffBasic2: {
+        css1: '{"selector":".form-label","rules":[{"directive":"white-space","value":"normal"}]}',
+        css2: '{"selector":".form-label","rules":[{"directive":"white-space","value":"normal"}]}',
+        diff: false
+    }
+};
+
+var cssIntelligentPushData = {
+    pushBasic: {
+        styles: '[]',
+        newStyle: '{"selector":".form-textbox,.form-textarea,.form-radio-other-input,.form-checkbox-other-input,.form-captcha input,.form-spinner input,.form-checkbox-item label,.form-radio-item label","rules":[{"directive":"color","value":"#ccc"}]}',
+        result: '[{"selector":".form-textbox,.form-textarea,.form-radio-other-input,.form-checkbox-other-input,.form-captcha input,.form-spinner input,.form-checkbox-item label,.form-radio-item label","rules":[{"directive":"color","value":"#ccc"}]}]'
+    },
+    pushBasic2: {
+        styles: '[{"selector":".first","rules":[{"directive":"color","value":"blue"},{"directive":"margin","value":"10px"}]},{"selector":".second","rules":[{"directive":"color","value":"red"},{"directive":"margin","value":"20px"}]}]',
+        newStyle: '{"selector":".first","rules":[{"directive":"padding","value":"5px"}]}',
+        result: '[{"selector":".first","rules":[{"directive":"color","value":"blue"},{"directive":"margin","value":"10px"},{"directive":"padding","value":"5px"}]},{"selector":".second","rules":[{"directive":"color","value":"red"},{"directive":"margin","value":"20px"}]}]'
+    },
+    pushBasic3: {
+        styles: '[{"selector":"@media screen and (min-width: 780px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"background-color","value":"#fafafa"}]}]}]',
+        newStyle: '{"selector":"@media screen and (min-width: 780px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"background-color","value":"#bada55"}]}]}',
+        result: '[{"selector":"@media screen and (min-width: 780px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"background-color","value":"#fafafa"}]},{"selector":".supernova","rules":[{"directive":"background-color","value":"#bada55"}]}]}]'
+    }
+};
+
+/*
+    data regarding unit tests of functions of FullInspector
+*/
+var unitTest = {
+    stripComments : {
+        input : '\/*\n   Some Css Comments\n   \n*\/\n.classSelector{\n   margin : 20px; \/* single line css comment *\/\n}',
+        output :  '\n.classSelector{\n   margin : 20px; \n}'
+    },
+    findCorrespondingRule : {
+        input1 :[
+                    {
+                        directive : 'margin',
+                        value : '0px'
+                    },
+                    {
+                        directive : 'background',
+                        value : 'black'
+                    },
+                ],
+        input2 : 'background',
+        output :{
+                    directive : 'background',
+                    value : 'black'
+                }
+    },
+    findBySelector : {
+        input1 :[
+                    {
+              
