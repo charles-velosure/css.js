@@ -1,4 +1,25 @@
-idth","value":"150px"},{"directive":"color","value":"red"}]}',
+n  .supernova {\n    padding: 60px 0;\n  }\n}\n@media screen and (min-width: 900px) {\n  .supernova {\n    padding: 90px 0;\n  }\n}\n.form-all {\n  background-color: #ffffff;\n}\n.form-header-group {\n  border-color: #e6e6e6;\n}\n.form-matrix-table tr {\n  border-color: #e6e6e6;\n}\n.form-matrix-table tr:nth-child(2n) {\n  background-color: #f2f2f2;\n}',
+        output: '[{"selector":"@media screen and (min-width: 780px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"background-color","value":"#fafafa"}]},{"selector":".supernova body","rules":[{"directive":"background-color","value":"#fafafa"}]},{"selector":".supernova .form-all","rules":[{"directive":"border","value":"1px solid #e1e1e1"},{"directive":"-webkit-box-shadow","value":"0 3px 9px rgba(0, 0, 0, 0.1)"},{"directive":"-moz-box-shadow","value":"0 3px 9px rgba(0, 0, 0, 0.1)"},{"directive":"box-shadow","value":"0 3px 9px rgba(0, 0, 0, 0.1)"}]}]},{"selector":"@media screen and (min-width: 780px) and (max-width: 840px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"padding","value":"30px 0"}]}]},{"selector":"@media screen and (min-width: 840px) and (max-width: 900px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"padding","value":"60px 0"}]}]},{"selector":"@media screen and (min-width: 900px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"padding","value":"90px 0"}]}]},{"selector":".form-all","rules":[{"directive":"background-color","value":"#ffffff"}]},{"selector":".form-header-group","rules":[{"directive":"border-color","value":"#e6e6e6"}]},{"selector":".form-matrix-table tr","rules":[{"directive":"border-color","value":"#e6e6e6"}]},{"selector":".form-matrix-table tr:nth-child(2n)","rules":[{"directive":"background-color","value":"#f2f2f2"}]}]'
+    },
+    advCSS4: {
+        input: '@font-face {\nfont-family: myFirstFont;\nsrc: url(sansation_light.woff);\n}',
+        output: '[{"selector":"@font-face","type":"font-face","rules":[{"directive":"font-family","value":"myFirstFont"},{"directive":"src","value":"url(sansation_light.woff)" }] }]'
+    },
+    advCSS5: {
+        input: '@font-face {\nfont-family: myFirstFont;\nsrc: url(sansation_light.woff) format(woff)\nurl(sansation_light.otf) format(opentype);\n}',
+        output: '[{"selector":"@font-face","type":"font-face","rules":[{"directive":"font-family","value":"myFirstFont"},{"directive":"src","value":"url(sansation_light.woff) format(woff)\\nurl(sansation_light.otf) format(opentype)" }] }]'
+    },
+    advCSS6: {
+        input: '/*--------------------------------------------------------------\nA big comment\n--------------------------------------------------------------*/@media screen and (min-width: 780px) {\n  .supernova {\n    background-color: #fafafa;\n  }\n}',
+        output: '[{"comments": "/*--------------------------------------------------------------\\nA big comment\\n--------------------------------------------------------------*/","selector":"@media screen and (min-width: 780px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"background-color","value":"#fafafa"}]}]}]'
+    }
+};
+
+
+
+var diffTestData = {
+    diffBasic: {
+        css1: '{"selector":".form-label-left,.form-label-right","rules":[{"directive":"width","value":"150px"},{"directive":"color","value":"red"}]}',
         css2: '{"selector":".form-label-left,.form-label-right","rules":[{"directive":"width","value":"150px"},{"directive":"color","value":"blue"}]}',
         diff: '{"selector":".form-label-left,.form-label-right","rules":[{"directive":"color","value":"red"}]}'
     },
@@ -371,25 +392,4 @@ var testData = {
         output: '[{"selector":"@media screen and (min-width: 780px) and (max-width: 840px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"padding","value":"30px 0"}]}]},{"selector":"@media screen and (min-width: 840px) and (max-width: 900px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"padding","value":"60px 0"}]}]}]'
     },
     advCSS3: {
-        input: '@media screen and (min-width: 780px) {\n  .supernova {\n    background-color: #fafafa;\n  }\n  .supernova body {\n    background-color: #fafafa;\n  }\n  .supernova .form-all {\n    border: 1px solid #e1e1e1;\n    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);\n    -moz-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);\n    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);\n  }\n}\n@media screen and (min-width: 780px) and (max-width: 840px) {\n  .supernova {\n    padding: 30px 0;\n  }\n}\n@media screen and (min-width: 840px) and (max-width: 900px) {\n  .supernova {\n    padding: 60px 0;\n  }\n}\n@media screen and (min-width: 900px) {\n  .supernova {\n    padding: 90px 0;\n  }\n}\n.form-all {\n  background-color: #ffffff;\n}\n.form-header-group {\n  border-color: #e6e6e6;\n}\n.form-matrix-table tr {\n  border-color: #e6e6e6;\n}\n.form-matrix-table tr:nth-child(2n) {\n  background-color: #f2f2f2;\n}',
-        output: '[{"selector":"@media screen and (min-width: 780px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"background-color","value":"#fafafa"}]},{"selector":".supernova body","rules":[{"directive":"background-color","value":"#fafafa"}]},{"selector":".supernova .form-all","rules":[{"directive":"border","value":"1px solid #e1e1e1"},{"directive":"-webkit-box-shadow","value":"0 3px 9px rgba(0, 0, 0, 0.1)"},{"directive":"-moz-box-shadow","value":"0 3px 9px rgba(0, 0, 0, 0.1)"},{"directive":"box-shadow","value":"0 3px 9px rgba(0, 0, 0, 0.1)"}]}]},{"selector":"@media screen and (min-width: 780px) and (max-width: 840px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"padding","value":"30px 0"}]}]},{"selector":"@media screen and (min-width: 840px) and (max-width: 900px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"padding","value":"60px 0"}]}]},{"selector":"@media screen and (min-width: 900px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"padding","value":"90px 0"}]}]},{"selector":".form-all","rules":[{"directive":"background-color","value":"#ffffff"}]},{"selector":".form-header-group","rules":[{"directive":"border-color","value":"#e6e6e6"}]},{"selector":".form-matrix-table tr","rules":[{"directive":"border-color","value":"#e6e6e6"}]},{"selector":".form-matrix-table tr:nth-child(2n)","rules":[{"directive":"background-color","value":"#f2f2f2"}]}]'
-    },
-    advCSS4: {
-        input: '@font-face {\nfont-family: myFirstFont;\nsrc: url(sansation_light.woff);\n}',
-        output: '[{"selector":"@font-face","type":"font-face","rules":[{"directive":"font-family","value":"myFirstFont"},{"directive":"src","value":"url(sansation_light.woff)" }] }]'
-    },
-    advCSS5: {
-        input: '@font-face {\nfont-family: myFirstFont;\nsrc: url(sansation_light.woff) format(woff)\nurl(sansation_light.otf) format(opentype);\n}',
-        output: '[{"selector":"@font-face","type":"font-face","rules":[{"directive":"font-family","value":"myFirstFont"},{"directive":"src","value":"url(sansation_light.woff) format(woff)\\nurl(sansation_light.otf) format(opentype)" }] }]'
-    },
-    advCSS6: {
-        input: '/*--------------------------------------------------------------\nA big comment\n--------------------------------------------------------------*/@media screen and (min-width: 780px) {\n  .supernova {\n    background-color: #fafafa;\n  }\n}',
-        output: '[{"comments": "/*--------------------------------------------------------------\\nA big comment\\n--------------------------------------------------------------*/","selector":"@media screen and (min-width: 780px)","type":"media","subStyles":[{"selector":".supernova","rules":[{"directive":"background-color","value":"#fafafa"}]}]}]'
-    }
-};
-
-
-
-var diffTestData = {
-    diffBasic: {
-        css1: '{"selector":".form-label-left,.form-label-right","rules":[{"directive":"w
+        input: '@media screen and (min-width: 780px) {\n  .supernova {\n    background-color: #fafafa;\n  }\n  .supernova body {\n    background-color: #fafafa;\n  }\n  .supernova .form-all {\n    border: 1px solid #e1e1e1;\n    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);\n    -moz-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);\n    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);\n  }\n}\n@media screen and (min-width: 780px) and (max-width: 840px) {\n  .supernova {\n    padding: 30px 0;\n  }\n}\n@media screen and (min-width: 840px) and (max-width: 900px) {\
