@@ -1,4 +1,137 @@
-           },
+'.someSelector',
+            rules : [
+                {
+                    directive : 'margin',
+                    value : '5 auto'
+                },
+            ]
+        }
+    },
+    cssDiff2 : {
+        input1 : {
+            selector : '.someSelector',
+            rules : [
+                {
+                    directive : 'margin',
+                    value : '0 auto'
+                },
+                {
+                    directive : 'padding',
+                    value : '0'
+                },
+                {
+                    directive : 'font-size',
+                    value : '20px'
+                },
+            ]
+        },
+        input2 : {
+            selector : '.someSelector',
+            rules : [
+                {
+                    directive : 'margin',
+                    value : '0 auto'
+                },
+                {
+                    directive : 'font-size',
+                    value : '20px'
+                },
+            ]
+        },
+        output : {
+            selector : '.someSelector',
+            rules : [
+                {
+                    directive : 'padding',
+                    value : '0'
+                },
+            ]
+        }
+    },
+    cssDiff3 : {
+        input1 : {
+            selector : '.someSelector',
+            rules : [
+                {
+                    directive : 'margin',
+                    value : '0 auto'
+                },
+            ]
+        },
+        input2 : {
+            selector : '.someSelector',
+            rules : [
+                {
+                    directive : 'margin',
+                    value : '0 auto'
+                },
+                {
+                    directive : 'font-size',
+                    value : '20px'
+                },
+            ]
+        },
+        output : {
+            selector : '.someSelector',
+            rules : [
+                {
+                    directive : 'font-size',
+                    value : '20px',
+                    type : 'DELETED'
+                },
+            ]
+        }
+    },
+    cssDiff4 : {
+        input1 : {
+            selector : '.someSelector',
+            rules : [
+                {
+                    directive : 'margin',
+                    value : '0 auto'
+                },
+                {
+                    directive : 'font-size',
+                    value : '20px'
+                },
+            ]
+        },
+        input2 : {
+            selector : '.someSelector2',
+            rules : [
+                {
+                    directive : 'margin',
+                    value : '0 auto'
+                },
+                {
+                    directive : 'font-size',
+                    value : '20px'
+                },
+            ]
+        },
+        output : false
+    },
+    cssDiff5 : {
+        input1 : {
+            selector : '.someSelector',
+            rules : [
+                {
+                    directive : 'padding',
+                    value : '0 auto'
+                },
+                {
+                    directive : 'font-size',
+                    value : '30px'
+                }
+            ]
+        },
+        input2 : {
+            selector : '.someSelector',
+            rules : [
+                {
+                    directive : 'margin',
+                    value : '0 auto'
+                },
                 {
                     directive : 'font-size',
                     value : '20px'
@@ -259,137 +392,4 @@ var unitTest = {
             ]
         },
         output : {
-            selector : '.someSelector',
-            rules : [
-                {
-                    directive : 'margin',
-                    value : '5 auto'
-                },
-            ]
-        }
-    },
-    cssDiff2 : {
-        input1 : {
-            selector : '.someSelector',
-            rules : [
-                {
-                    directive : 'margin',
-                    value : '0 auto'
-                },
-                {
-                    directive : 'padding',
-                    value : '0'
-                },
-                {
-                    directive : 'font-size',
-                    value : '20px'
-                },
-            ]
-        },
-        input2 : {
-            selector : '.someSelector',
-            rules : [
-                {
-                    directive : 'margin',
-                    value : '0 auto'
-                },
-                {
-                    directive : 'font-size',
-                    value : '20px'
-                },
-            ]
-        },
-        output : {
-            selector : '.someSelector',
-            rules : [
-                {
-                    directive : 'padding',
-                    value : '0'
-                },
-            ]
-        }
-    },
-    cssDiff3 : {
-        input1 : {
-            selector : '.someSelector',
-            rules : [
-                {
-                    directive : 'margin',
-                    value : '0 auto'
-                },
-            ]
-        },
-        input2 : {
-            selector : '.someSelector',
-            rules : [
-                {
-                    directive : 'margin',
-                    value : '0 auto'
-                },
-                {
-                    directive : 'font-size',
-                    value : '20px'
-                },
-            ]
-        },
-        output : {
-            selector : '.someSelector',
-            rules : [
-                {
-                    directive : 'font-size',
-                    value : '20px',
-                    type : 'DELETED'
-                },
-            ]
-        }
-    },
-    cssDiff4 : {
-        input1 : {
-            selector : '.someSelector',
-            rules : [
-                {
-                    directive : 'margin',
-                    value : '0 auto'
-                },
-                {
-                    directive : 'font-size',
-                    value : '20px'
-                },
-            ]
-        },
-        input2 : {
-            selector : '.someSelector2',
-            rules : [
-                {
-                    directive : 'margin',
-                    value : '0 auto'
-                },
-                {
-                    directive : 'font-size',
-                    value : '20px'
-                },
-            ]
-        },
-        output : false
-    },
-    cssDiff5 : {
-        input1 : {
-            selector : '.someSelector',
-            rules : [
-                {
-                    directive : 'padding',
-                    value : '0 auto'
-                },
-                {
-                    directive : 'font-size',
-                    value : '30px'
-                }
-            ]
-        },
-        input2 : {
-            selector : '.someSelector',
-            rules : [
-                {
-                    directive : 'margin',
-                    value : '0 auto'
-     
+            selector : 
