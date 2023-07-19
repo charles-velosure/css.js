@@ -1,101 +1,4 @@
-          selector : '.someSelector',
-                        rules : [
-                            {
-                                directive : 'margin',
-                                value : '0 auto'
-                            },
-                            {
-                                directive : 'font-size',
-                                value : '20px'
-                            },
-                        ]
-                    },{
-                        selector : '.selector',
-                        rules : [
-                            {
-                                directive : 'border',
-                                value : '1px solid red'
-                            },
-                            {
-                                directive : 'color',
-                                value : 'blue'
-                            },
-                        ]
-                    }
-                ],
-        input2 : '.selector',
-        output :[
-                    {
-                            selector : '.selector',
-                            rules : [
-                                {
-                                    directive : 'border',
-                                    value : '1px solid red'
-                                },
-                                {
-                                    directive : 'color',
-                                    value : 'blue'
-                                },
-                            ]
-                    }
-                ]
-    },
-    findBySelector2 : {
-        input1 :[
-                    {
-                        selector : '@imports',
-                        styles: '@import url(https://fonts.googleapis.com/css?family=Roboto);',
-                        type: 'imports',
-                    },
-                    {
-                        selector : '@imports',
-                        styles: '@import url(https://fonts.googleapis.com/css?family=Droid+Serif);',
-                        type: 'imports',
-                    }
-                ],
-        input2 : '@imports',
-        output :[
-                    {
-                        selector : '@imports',
-                        styles: '@import url(https://fonts.googleapis.com/css?family=Roboto);',
-                        type: 'imports',
-                    },
-                    {
-                        selector : '@imports',
-                        styles: '@import url(https://fonts.googleapis.com/css?family=Droid+Serif);',
-                        type: 'imports',
-                    }
-                ]
-    },
-    cssDiff1 : {
-        input1 : {
-            selector : '.someSelector',
-            rules : [
-                {
-                    directive : 'margin',
-                    value : '5 auto'
-                },
-                {
-                    directive : 'font-size',
-                    value : '20px'
-                },
-            ]
-        },
-        input2 : {
-            selector : '.someSelector',
-            rules : [
-                {
-                    directive : 'margin',
-                    value : '0 auto'
-                },
-                {
-                    directive : 'font-size',
-                    value : '20px'
-                },
-            ]
-        },
-        output : {
-            selector : '.someSelector',
+'.someSelector',
             rules : [
                 {
                     directive : 'margin',
@@ -392,4 +295,101 @@ var unitTest = {
     findBySelector : {
         input1 :[
                     {
-              
+                        selector : '.someSelector',
+                        rules : [
+                            {
+                                directive : 'margin',
+                                value : '0 auto'
+                            },
+                            {
+                                directive : 'font-size',
+                                value : '20px'
+                            },
+                        ]
+                    },{
+                        selector : '.selector',
+                        rules : [
+                            {
+                                directive : 'border',
+                                value : '1px solid red'
+                            },
+                            {
+                                directive : 'color',
+                                value : 'blue'
+                            },
+                        ]
+                    }
+                ],
+        input2 : '.selector',
+        output :[
+                    {
+                            selector : '.selector',
+                            rules : [
+                                {
+                                    directive : 'border',
+                                    value : '1px solid red'
+                                },
+                                {
+                                    directive : 'color',
+                                    value : 'blue'
+                                },
+                            ]
+                    }
+                ]
+    },
+    findBySelector2 : {
+        input1 :[
+                    {
+                        selector : '@imports',
+                        styles: '@import url(https://fonts.googleapis.com/css?family=Roboto);',
+                        type: 'imports',
+                    },
+                    {
+                        selector : '@imports',
+                        styles: '@import url(https://fonts.googleapis.com/css?family=Droid+Serif);',
+                        type: 'imports',
+                    }
+                ],
+        input2 : '@imports',
+        output :[
+                    {
+                        selector : '@imports',
+                        styles: '@import url(https://fonts.googleapis.com/css?family=Roboto);',
+                        type: 'imports',
+                    },
+                    {
+                        selector : '@imports',
+                        styles: '@import url(https://fonts.googleapis.com/css?family=Droid+Serif);',
+                        type: 'imports',
+                    }
+                ]
+    },
+    cssDiff1 : {
+        input1 : {
+            selector : '.someSelector',
+            rules : [
+                {
+                    directive : 'margin',
+                    value : '5 auto'
+                },
+                {
+                    directive : 'font-size',
+                    value : '20px'
+                },
+            ]
+        },
+        input2 : {
+            selector : '.someSelector',
+            rules : [
+                {
+                    directive : 'margin',
+                    value : '0 auto'
+                },
+                {
+                    directive : 'font-size',
+                    value : '20px'
+                },
+            ]
+        },
+        output : {
+            selector : 
